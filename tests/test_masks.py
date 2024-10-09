@@ -12,8 +12,9 @@ def account_number():
     return 73654108430135874305
 
 
-def test_get_mask_card_number():
-    assert get_mask_card_number(7000792289606361) == '7000 79** **** 6361'
+@pytest.mark.parametrize("value, expected", [(7000792289606361, '7000 79** **** 6361')])
+def test_get_mask_card_number(value, expected):
+    assert get_mask_card_number(value) == expected
 
 
 def test_get_mask_account():
