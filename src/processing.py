@@ -10,15 +10,16 @@ def filter_by_state(my_list: list, state='EXECUTED') -> list:
     return filtered_list
 
 
+def parse_date(date: str) -> datetime:
+    """Преобразует строку в объект datetime"""
+    return datetime.fromisoformat(date)
+
+
 def sort_by_date(my_list: list, ascending=True) -> list:
     """Сортирует список по дате"""
-
-    def parse_date(date):
-        """Преобразует строку в объект datetime"""
-        return datetime.fromisoformat(item['date'])
-
-
-    for item in my_list:
-        sorted_by_date_list = sorted(my_list, key=parse_date, reverse=ascending)
-
+    sorted_by_date_list = sorted(
+        my_list,
+        key=lambda item: parse_date(item['date']),
+        reverse=not ascending
+        )
     return sorted_by_date_list

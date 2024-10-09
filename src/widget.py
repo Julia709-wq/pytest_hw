@@ -15,8 +15,6 @@ def mask_account_card(data: str) -> str:
     return " ".join(masked_card)
 
 
-
-
 def get_data(date_input: str) -> str:
     """Преобразование строки в дату"""
     date_list = date_input.split("-")
