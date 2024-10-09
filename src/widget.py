@@ -22,4 +22,3 @@ def get_data(date_input: str) -> str:
     month = date_list[1]
     day = date_list[2][:2]
     return day + "." + month + "." + year
-
