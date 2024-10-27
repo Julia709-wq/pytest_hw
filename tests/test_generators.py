@@ -80,8 +80,7 @@ def transactions_list():
             "description": "Перевод организации",
             "from": "Visa Platinum 1246377376343588",
             "to": "Счет 14211924144426031657"
-        }
-    ])
+        }])
 
 def test_filter_by_currency_usd(transactions_list):
     transactions = transactions_list
