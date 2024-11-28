@@ -1,0 +1,13 @@
+my_function started
+my_function ok
+error_function started
+error_function error: ZeroDivisionError. Inputs: (1, 0), {}
+my_function started
+my_function ok
+error_function started
+error_function error: ZeroDivisionError. Inputs: (1, 0), {}
+my_function started
+my_function ok
+error_function started
+error_function error: ZeroDivisionError. Inputs: (1, 0), {}
+my_function startedmy_function okerror_function startederror_function error: ZeroDivisionError. Inputs: (1, 0), {}my_function startedmy_function okerror_function startederror_function error: ZeroDivisionError. Inputs: (1, 0), {}my_function startedmy_function okerror_function startederror_function error: ZeroDivisionError. Inputs: (1, 0), {}my_function startedmy_function okerror_function startederror_function error: ZeroDivisionError. Inputs: (1, 0), {}
