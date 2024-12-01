@@ -2,37 +2,36 @@ from functools import wraps
 
 
 def log(filename=None):
-    def decorator(func):  # func - функция для декорирования
+    """Декоратор, который логирует вызов функции, ее успешное выполнение
+    или возникновение ошибок."""
+    def decorator(func): # func - функция для декорирования
+        """Внутренний декоратор, оборачивающий целевую функцию."""
         @wraps(func)
         def wrapper(*args, **kwargs):
-            output = open(filename, 'a') if filename else None  # открываем файл для записи логов
+            """ Обертка для логирования вызова функции."""
+            if filename:
+                with open(filename, 'a') as output:
+                    def write(message):
+                        output.write(message)
 
-            log_message = f"{func.__name__} started"
-            if output:
-                output.write(log_message)
             else:
-                print(log_message)
+                def write(message):
+                    print(message)
+
 
             try:
+                log_message = f"{func.__name__} started"
+                write(log_message)
+
                 result = func(*args, **kwargs)
                 log_message = f"{func.__name__} ok"
-                if output:
-                    output.write(log_message)
-                else:
-                    print(log_message, end='')
+                write(log_message)
                 return result
 
             except Exception as e:
                 log_message = f"{func.__name__} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
-                if output:
-                    output.write(log_message)
-                else:
-                    print(log_message, end='')
+                write(log_message)
                 raise
-
-            finally:
-                if output:
-                    output.close()
 
         return wrapper
     return decorator
